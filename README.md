@@ -57,7 +57,7 @@ real enterprise network. Ensured agents communicate with manager over TCP 1514.
 ✔ Heartbeat signals are stable.\
 ✔ Initial logs are successfully collected and indexed.
 
- - screenshots/agents-active.png
+![](screenshots/agents-active.png)
 
  ⚙ Configuration
 
@@ -74,7 +74,7 @@ Wazuh agent configuration updated:
 
 Wazuh agent service restarted after configuration.
 
-screenshots/sysmon-script.png
+![](screenshots/sysmon-script.png)
 
 ✅ Week 1 Status: COMPLETED
 
@@ -118,7 +118,8 @@ Inside <syscheck> section, the following configuration was added:
 After updating configuration:
 sudo systemctl restart wazuh-agent
 
-- screenshots/ubuntu-fim-script.png
+![](screenshots/ubuntu-fim-script.png)
+
 ---
 
 ### Result
@@ -144,7 +145,8 @@ rule.groups:syscheck
 or
 Dashboard → Modules → Intergrity monitering
 
-screenshots/ubuntu-fim-event.png
+![](screenshots/ubuntu-fim-event.png)
+
 ---
 
 ------------------------------------------------------------------------
@@ -159,13 +161,15 @@ screenshots/ubuntu-fim-event.png
 Configured directory: C:\Program Files (x86)\ossec-agent\ossec.conf
 
 <directories check_all="yes" realtime="yes">C:\Windows\System32\drivers\etc</directories>
-windows-fim-script
+
+![](screenshots/windows-fim-script)
 
 ### Result
 
 -   Real-time file modification alert triggered successfully.
 
- screenshots/windows-fim-event.png
+ ![](screenshots/windows-fim-event.png)
+
 
 ------------------------------------------------------------------------
 
@@ -191,7 +195,7 @@ Enabled the Vulnerability Detector module.
     -   Affected Package
     -   Fixed Version
 
-- screenshots/vuln-detector.png
+![](screenshots/vuln-detector.png)
 
 ------------------------------------------------------------------------
 
