@@ -132,6 +132,8 @@ Result:
 - Integrity checksum changed
 - Real-time detection confirmed
 
+![](screenshots/ubuntu-fim-event.png)
+
 --- 
 
 # Viewing FIM Alerts in Dashboard
