@@ -218,7 +218,7 @@ Enabled the Vulnerability Detector module.
 
 <enabled>no</enabled>            -->          <enabled>yes</enabled>
 
-same for windows & OS ubuntu OS 
+same for windows & ubuntu OS 
 
 ![](screenshots/vuln-detector.png)
 
