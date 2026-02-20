@@ -211,7 +211,7 @@ same for windows & OS ubuntu OS
 
 ✔ Manually modified a file in a monitored FIM directory.\
 ✔ High-severity alert appeared in dashboard within seconds.\
-✔ Vulnerability Detector successfully generated CVE-based alerts.
+✔ Vulnerability Detector successfully enabled.\
 
 ✅ Week 2 Status: COMPLETED
 
