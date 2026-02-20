@@ -67,10 +67,12 @@ Sysmon installed using:
 
 Wazuh agent configuration updated:
 
+```xml
 <localfile>
   <location>Microsoft-Windows-Sysmon/Operational</location>
   <log_format>eventchannel</log_format>
 </localfile>
+```
 
 Wazuh agent service restarted after configuration.
 
@@ -215,9 +217,9 @@ Enabled the Vulnerability Detector module.
     -   Severity Level
     -   Affected Package
     -   Fixed Version
-
+```xml
 <enabled>no</enabled>            -->          <enabled>yes</enabled>
-
+```
 same for windows & ubuntu OS 
 
 ![](screenshots/vuln-detector.png)
