@@ -145,7 +145,7 @@ rule.groups:syscheck
 or
 Dashboard → Modules → Intergrity monitering
 
-![](screenshots/ubuntu-fim-event.png)
+![](screenshots/windows-fim-script)
 
 ---
 
