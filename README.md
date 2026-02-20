@@ -76,6 +76,26 @@ Wazuh agent service restarted after configuration.
 
 ![](screenshots/sysmon-script.png)
 
+## Sysmon Detection Results
+
+After integration, multiple high-fidelity security alerts were generated and validated.
+🔍 Observed Detections
+
+Suspicious execution of whoami.exe
+Executable dropped in Windows root directory
+Abnormal Command Prompt parent process
+PowerShell execution monitoring
+Application Compatibility Database activity
+Several alerts triggered at Level 12 (High Severity).
+
+This confirms:
+Proper rule decoding
+Command-line visibility
+Parent-child process tracking
+Suspicious behavior detection
+
+ ![](screenshots/sysmon-alert.png)
+ 
 ✅ Week 1 Status: COMPLETED
 
 ------------------------------------------------------------------------
