@@ -197,9 +197,9 @@ Enabled the Vulnerability Detector module.
     -   Affected Package
     -   Fixed Version
 
-<vulnerability-detector>                      <vulnerability-detector>
-<enabled>no</enabled>           -->          <enabled>yes</enabled>
-<interval>5m</interval>                       <interval>5m</interval>
+<vulnerability-detector>.                      <vulnerability-detector>
+<enabled>no</enabled>.            -->          <enabled>yes</enabled>
+<interval>5m</interval>.                       <interval>5m</interval>
 
 same for windows & OS ubuntu OS 
 
