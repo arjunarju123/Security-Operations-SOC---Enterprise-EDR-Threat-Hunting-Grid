@@ -57,7 +57,24 @@ real enterprise network. Ensured agents communicate with manager over TCP 1514.
 ✔ Heartbeat signals are stable.\
 ✔ Initial logs are successfully collected and indexed.
 
-📸 Evidence: - agents-active.png
+ - screenshots/agents-active.png
+
+ ⚙ Configuration
+
+Sysmon installed using:
+
+Sysmon64.exe -accepteula -i sysmonconfig.xml
+
+Wazuh agent configuration updated:
+
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>
+
+Wazuh agent service restarted after configuration.
+
+screenshots/sysmon-script.png
 
 ✅ Week 1 Status: COMPLETED
 
@@ -101,7 +118,7 @@ Inside <syscheck> section, the following configuration was added:
 After updating configuration:
 sudo systemctl restart wazuh-agent
 
-- ubuntu-fim-script.png
+- screenshots/ubuntu-fim-script.png
 ---
 
 ### Result
@@ -127,7 +144,7 @@ rule.groups:syscheck
 or
 Dashboard → Modules → Intergrity monitering
 
-ubuntu-fim-event.png
+screenshots/ubuntu-fim-event.png
 ---
 
 ------------------------------------------------------------------------
@@ -148,7 +165,7 @@ windows-fim-script
 
 -   Real-time file modification alert triggered successfully.
 
- windows-fim-event.png
+ screenshots/windows-fim-event.png
 
 ------------------------------------------------------------------------
 
@@ -174,7 +191,7 @@ Enabled the Vulnerability Detector module.
     -   Affected Package
     -   Fixed Version
 
-📸 - vuln-detector.png
+- screenshots/vuln-detector.png
 
 ------------------------------------------------------------------------
 
