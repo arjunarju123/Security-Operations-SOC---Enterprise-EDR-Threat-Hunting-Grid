@@ -63,7 +63,7 @@ real enterprise network. Ensured agents communicate with manager over TCP 1514.
 
 Sysmon installed using:
 
-Sysmon64.exe -accepteula -i sysmonconfig.xml
+ $ Sysmon64.exe -accepteula -i sysmonconfig.xml
 
 Wazuh agent configuration updated:
 
