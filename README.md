@@ -145,7 +145,7 @@ rule.groups:syscheck
 or
 Dashboard → Modules → Intergrity monitering
 
-![](screenshots/windows-fim-script)
+![](screenshots/windows-fim-script.png)
 
 ---
 
