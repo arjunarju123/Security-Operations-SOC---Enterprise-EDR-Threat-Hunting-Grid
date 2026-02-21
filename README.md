@@ -21,13 +21,13 @@ multi-agent enterprise-style environment.
 ------------------------------------------------------------------------
 
 # 🏗 Lab Architecture
-
+```
   Component      Role
   -------------- ---------------
   Kali Linux     Wazuh Manager
   Windows 11     Wazuh Agent
   Ubuntu server   Wazuh Agent
-
+```
 All systems are configured in **Bridged Network Mode** to simulate a
 real enterprise network. Ensured agents communicate with manager over TCP 1514.
 ------------------------------------------------------------------------
