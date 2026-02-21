@@ -6,7 +6,6 @@ detection, file integrity monitoring, and vulnerability assessment
 across Linux and Windows systems.
 
 ------------------------------------------------------------------------
-# 🛡 Enterprise EDR & Threat Hunting Grid -- Sentient Shield
 
 ## 📌 Project Overview
 
