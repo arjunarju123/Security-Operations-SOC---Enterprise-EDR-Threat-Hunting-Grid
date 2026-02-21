@@ -1,21 +1,18 @@
 # 🛡 Security Operations (SOC) -- Enterprise EDR & Threat Hunting Grid
 
 This project demonstrates the implementation of a simulated enterprise
-Security Operations Center (SOC) environment using Wazuh for endpoint
-detection, file integrity monitoring, and vulnerability assessment
-across Linux and Windows systems.
+Security Operations Center (SOC) environment using Wazuh for 
 
 ------------------------------------------------------------------------
 
 ## 📌 Project Overview
 
 This project demonstrates the design and implementation of a centralized
-SOC (Security Operations Center) lab using Wazuh SIEM with multiple
-agents.
+SOC (Security Operations Center) lab using Wazuh for agents endpoint 
+detection, file integrity monitoring, and vulnerability assessment
+across Linux and Windows systems.
 
-The lab simulates real-world cyber attack scenarios and showcases
-detection, monitoring, and automated response capabilities in a
-multi-agent enterprise-style environment.
+
 
 ------------------------------------------------------------------------
 
