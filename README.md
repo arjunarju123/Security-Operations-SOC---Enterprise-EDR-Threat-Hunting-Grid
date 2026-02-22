@@ -220,13 +220,12 @@ same for windows & ubuntu OS
 
 ![](screenshots/vuln-detector.png)
 
-then manually  installed vulnerable software 
-we used apache2
-Vulnerabilities detected and alerted
+then manually  installed vulnerable software.
+we used apache2.
+Vulnerabilities detected and alerted.
 
 
-![](screenshots/vulnerability-detector-alert.png) ,![](screenshots/vulnerability-detector-alert2.png)
-
+![](screenshots/vulnerability-detector-alert.png) ![](screenshots/vulnerability-detector-alert2.png)
 
 
 
