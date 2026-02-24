@@ -292,7 +292,10 @@ To confirm the IPS worked at the system level, the following checks were perform
 
 A. Active Response Logs
 Verified that the script executed successfully by checking the agent's local log:
-tail -n 5 /var/ossec/logs/active-responses.log
+
+$ tail -n 5 /var/ossec/logs/active-responses.log
+
+![](screenshots/ar-log.png) 
 
 Result: The log confirmed the firewall-drop.sh script was called with the add argument for the attacker's IP.
 
@@ -300,11 +303,14 @@ B. Firewall Rules (iptables)
 Verified that the IP was added to the kernel routing table:
 
 $ sudo iptables -L -n
+
 ![](screenshots/ar-iptable.png)
 
 Result: Confirmed a DROP rule in the INPUT chain for the attacker's source IP.
+
 Output:
-DROP  all  --  10.41.55.89  0.0.0.0/0
+
+DROP  all  --  10.41.55.89       0.0.0.0/0
 
 
 C. SSH brute-force alerts observed in Wazuh Dashboard
