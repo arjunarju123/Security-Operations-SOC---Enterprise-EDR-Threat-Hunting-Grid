@@ -319,7 +319,7 @@ Active Response event logged:
 ![](screenshots/ar-block-event.png)
 
 
-
+------------------------------------------------------------------------
 
 🧠 Troubleshooting & Lessons Learned
 
