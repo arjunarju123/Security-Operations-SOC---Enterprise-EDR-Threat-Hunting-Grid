@@ -300,7 +300,7 @@ B. Firewall Rules (iptables)
 Verified that the IP was added to the kernel routing table:
 
 $ sudo iptables -L -n
-![](screenshots/ar-iptables.png)
+![](screenshots/ar-iptable.png)
 
 Result: Confirmed a DROP rule in the INPUT chain for the attacker's source IP.
 Output:
