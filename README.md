@@ -241,3 +241,93 @@ Vulnerabilities detected and alerted.
 ✅ Week 2 Status: COMPLETED
 
 ------------------------------------------------------------------------
+Week 3 – Active Response (Intrusion Prevention System)
+
+
+🎯 Objective
+
+To configure and verify an Intrusion Prevention System (IPS) using Wazuh. The goal is to detect an SSH brute-force attack and automatically trigger a firewall block on the target host (ubuntu_22) to mitigate the threat in real-time.
+
+------------------------------------------------------------------------
+
+🔍 Configuration Details
+The active response was configured on the Wazuh Manager in the /var/ossec/etc/ossec.conf file.
+
+![](screenshots/ar-conf.png)
+
+⚙️ Active Response Setup
+The following parameters were defined to ensure the manager commands the agent to drop malicious traffic:
+
+Command: firewall-drop (utilizes the host's local firewall to block IPs).
+
+Location: local (executes the response on the specific agent that generated the alert).
+
+Timeout: 600 seconds (the IP is unbanned automatically after 10 minutes).
+
+Targeted Rule IDs
+To catch the brute force attack effectively, the following rules were monitored:
+
+5760: SSHD authentication failed.
+
+5758: Maximum authentication attempts exceeded.
+
+40111: Multiple authentication failures (Trigger Rule).
+
+2502: Syslog: User missed the password more than once.
+
+------------------------------------------------------------------------
+
+
+🧪 Attack Simulation & Verification 
+An SSH brute-force attack was simulated using Hydra against the Ubuntu SSH service.
+
+$ hydra -l root -P passwords.txt ssh://agent-ip
+
+![](screenshots/brute-force.png)
+
+## 🚪 Gate Check
+
+Manual Verification on Target Host
+To confirm the IPS worked at the system level, the following checks were performed on the ubuntu_22 agent:
+
+A. Active Response Logs
+Verified that the script executed successfully by checking the agent's local log:
+tail -n 5 /var/ossec/logs/active-responses.log
+
+Result: The log confirmed the firewall-drop.sh script was called with the add argument for the attacker's IP.
+
+B. Firewall Rules (iptables)
+Verified that the IP was added to the kernel routing table:
+
+$ sudo iptables -L -n
+![](screenshots/ar-iptables.png)
+
+Result: Confirmed a DROP rule in the INPUT chain for the attacker's source IP.
+Output:
+DROP  all  --  10.41.55.89  0.0.0.0/0
+
+
+C. SSH brute-force alerts observed in Wazuh Dashboard
+Active Response event logged:
+“Host Blocked by firewall-drop Active Response”
+![](screenshots/ar-block-event.png)
+
+
+
+
+🧠 Troubleshooting & Lessons Learned
+
+XML Formatting: Initially, the configuration was placed inside XML comment tags (``), causing it to be ignored by the manager. Removing these tags and restarting the wazuh-manager service resolved the issue.
+
+
+Higher-level rules (e.g., Level 10) are effective triggers for IPS behavior
+Wazuh can function as an automated Intrusion Prevention System (IPS)
+
+Accurate rule selection is critical for proper response execution
+
+
+🚀 Result
+
+Successfully implemented automated SSH brute-force mitigation using Wazuh Active Response.
+
+Week 3: ✅ Completed
