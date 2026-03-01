@@ -385,18 +385,13 @@ Step 2 – Enable TLS 1.2
 
 Fixed SSL/TLS secure channel error (if needed):
 
-Powershell
-
 $ [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Step 3 – Install Atomic Red Team via GitHub Script
-Powershell
 
 $ IEX(IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing);
 
 Step 4 – Download Atomics
-
-Powershell
 
 $ Install-AtomicRedTeam -getAtomics -Force
 
