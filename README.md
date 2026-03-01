@@ -374,7 +374,9 @@ Step 1 – Bypass Execution Policy
 
 PowerShell blocks unsigned scripts by default.
 Execution policy was changed for current user:
+
 Powershell
+
 $ Set-ExecutionPolicy Bypass CurrentUser
 
 Confirmed with Y to proceed.
@@ -382,7 +384,9 @@ Confirmed with Y to proceed.
 Step 2 – Enable TLS 1.2
 
 Fixed SSL/TLS secure channel error (if needed):
+
 Powershell
+
 $ [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Step 3 – Install Atomic Red Team via GitHub Script
