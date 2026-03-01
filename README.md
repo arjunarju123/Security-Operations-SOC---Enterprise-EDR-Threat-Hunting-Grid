@@ -483,7 +483,10 @@ Attack Command Executed:
 
 $ Invoke-AtomicTest T1490 -ShowDetails
 
-or 
+![](screenshots/art-success.png)
+
+
+or  
 manually trigger
 
 $ vssadmin.exe delete shadows /all /quiet
@@ -491,7 +494,13 @@ $ vssadmin.exe delete shadows /all /quiet
 if showing no files - Then create one
 
 $ wmic shadowcopy call create Volume='C:\'
-![](screenshots/art-success.png)
+
+again trigger
+
+$ Invoke-AtomicTest T1490 -TestNumbers 1 -PathToAtomicsFolder 'C:\AtomicRedTeam\atomics'
+
+![](art-trigger.png)
+
 
 ## Purpose:
 
@@ -502,6 +511,7 @@ Prevent system restoration
 Increase operational impact
 
 Disable backup recovery options
+
 ------------------------------------------------------------------------
 ## 🔍 Detection Workflow
 
@@ -520,8 +530,10 @@ MITRE mapping applied
 Alert received in dashboard
 
  ![](screenshots/MITRE-Dashboard.png)
+ 
 
  wazuh -> Module -> MITRE ATT&CK
+ 
  ------------------------------------------------------------------------
 ## 📊 Detection Result
 
@@ -566,7 +578,9 @@ OpenSearch visualization
 SOC detection validation workflow
 
 ------------------------------------------------------------------------
+
 ## Challenges Faced ⚠ 
+
 1. SSL/TLS Secure Channel Error
 Issue:
 While downloading Atomic Red Team from GitHub
