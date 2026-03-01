@@ -817,6 +817,6 @@ MITRE ID	          T1490
 Tactic	            Impact
 Technique	        Inhibit System Recovery
 
- ![](screenshots/MITRE-Dashboard)
+ ![](screenshots/MITRE-Dashboard.png)
  
 
