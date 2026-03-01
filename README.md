@@ -120,7 +120,7 @@ File location:
 /var/ossec/etc/ossec.conf
 
 Inside <syscheck> section, the following configuration was added:
-
+``` xml
 <directories check_all="yes" realtime="yes">/etc/passwd</directories>
 <directories check_all="yes" realtime="yes">/etc/shadow</directories>
 <directories check_all="yes" realtime="yes">/etc/group</directories>
@@ -128,6 +128,7 @@ Inside <syscheck> section, the following configuration was added:
 <directories check_all="yes" realtime="yes">/etc</directories>
 <directories check_all="yes" realtime="yes">/usr/bin</directories>
 <directories check_all="yes" realtime="yes">/bin</directories>
+```
 
 After updating configuration:
 sudo systemctl restart wazuh-agent
@@ -159,7 +160,7 @@ Search filter:
 rule.groups:syscheck
 
 or
-Dashboard → Modules → Integrity monitering
+Dashboard → Modules → Integrity Monitering
 
 
 ---
@@ -516,14 +517,15 @@ Alert received in dashboard
 ## 📊 Detection Result
 
 After executing the attack:
+| Field        | Value                     |
+|-------------|---------------------------|
+| Agent       | windows_s16               |
+| Rule ID     | 100200                    |
+| Level       | 12 (High)                 |
+| MITRE ID    | T1490                     |
+| Tactic      | Impact                    |
+| Technique   | Inhibit System Recovery   |
 
-Field	              Value
-Agent	              windows_s16
-Rule ID	            100200
-Level	              12 (High)
-MITRE ID	          T1490
-Tactic	            Impact
-Technique	        Inhibit System Recovery
 
 # ✅ Gate Check – Completed
 
