@@ -395,7 +395,9 @@ Step 4 – Download Atomics
 
 $ Install-AtomicRedTeam -getAtomics -Force
 
-verify the folder exists: $ cd C:/AtomicRedTeam 
+verify the folder exists:
+
+$ cd C:/AtomicRedTeam 
 
 $ dir
 
