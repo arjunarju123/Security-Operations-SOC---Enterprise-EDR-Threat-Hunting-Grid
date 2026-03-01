@@ -34,9 +34,7 @@ real enterprise network. Ensured agents communicate with manager over TCP 1514.
 -   Hydra (Brute-force Simulation)
 -   Kali Linux
 -   Ubuntu
--   Windows 10
--   MITRE ATT&CK Framework
-
+-   Windows 11 (zzz)
 
 
 ### 🔎 Visibility Setup
@@ -161,9 +159,8 @@ Search filter:
 rule.groups:syscheck
 
 or
-Dashboard → Modules → Intergrity monitering
+Dashboard → Modules → Integrity monitering
 
-![](screenshots/windows-fim-script.png)
 
 ---
 
@@ -180,7 +177,7 @@ Configured directory: C:\Program Files (x86)\ossec-agent\ossec.conf
 
 <directories check_all="yes" realtime="yes">C:\Windows\System32\drivers\etc</directories>
 
-![](screenshots/windows-fim-script)
+![](screenshots/windows-fim-script.png)
 
 ### Result
 
@@ -214,12 +211,11 @@ Enabled the Vulnerability Detector module.
 ```xml
 <enabled>no</enabled>            -->          <enabled>yes</enabled>
 ```
-same for windows & ubuntu OS 
+The same configuration change was applied to both Windows and Ubuntu providers.
 
 ![](screenshots/vuln-detector.png)
 
-then manually  installed vulnerable software.
-we used apache2.
+A vulnerable version of Apache2 was manually installed to validate detection capabilities.
 Vulnerabilities detected and alerted.
 eenshots/vulnerability-detector-alert.png)
 
@@ -340,10 +336,10 @@ Week 3: ✅ Completed
 
 # 📘 Week 4 – Threat Simulation & MITRE Visualization
 
-🔥 Ransomware Attack Simulation using Atomic Red Team
+🔥 Ransomware Attack Simulation using AtomicRedTeam
 
 ## 🎯 Objective
-Simulate a common ransomware behavior using the Atomic Red Team framework and validate detection within the SOC lab.
+Simulate a common ransomware behavior using the AtomicRedTeam framework and validate detection within the SOC lab.
 
 Technique simulated:
 
@@ -372,7 +368,7 @@ MITRE ATT&CK mapping and visualization in OpenSearch
 📜 Event ID 4688 (Process Creation) enabled
 
 ------------------------------------------------------------------------
-## 🔧 Atomic Red Team Installation Process
+## 🔧 AtomicRedTeam Installation Process
 
 Step 1 – Bypass Execution Policy
 
@@ -399,10 +395,10 @@ Step 4 – Download Atomics
 Powershell
 $ Install-AtomicRedTeam -getAtomics -Force
 
-verify the folder exists: $ cd C:/Atomicredteam 
+verify the folder exists: $ cd C:/AtomicRedTeam 
 $ dir
 
-atomicds stored at:
+atomics stored at:
 
 C:\AtomicRedTeam\atomics
 ![](screenshots/art-installation.png)
@@ -512,7 +508,7 @@ Alert indexed in OpenSearch
 
 MITRE mapping applied
 
-Alert  received in dashboard
+Alert received in dashboard
 
  ![](screenshots/MITRE-Dashboard.png)
 
@@ -612,6 +608,10 @@ Solution:
 Manually created shadow copy before executing attack
 
 ✔ Ensured realistic ransomware simulation.
+
+### 🏁 Final Conclusion
+
+This SOC lab successfully demonstrated enterprise-level detection engineering, automated response, vulnerability management, and ransomware behavior simulation aligned with MITRE ATT&CK. The environment replicates real-world SOC workflows including monitoring, detection, mitigation, and visualization.
 
 Week 4: ✅ Completed
 ------------------------------------------------------------------------
