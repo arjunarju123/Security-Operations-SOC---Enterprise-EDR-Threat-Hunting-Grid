@@ -774,6 +774,7 @@ Added:
 ![](screenshots/new-conf.png)
 
  Windows Audit Policy Enabled 
+ 
 $ auditpol /set /subcategory:"Process Creation" /success:enable
 $ gpupdate /force
 
