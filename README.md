@@ -581,21 +581,21 @@ Vulnerabilities detected and alerted.
 ✅ Week 2 Status: COMPLETED
 
 ------------------------------------------------------------------------
-Week 3 – Active Response (Intrusion Prevention System)
+## Week 3 – Active Response (Intrusion Prevention System)
 
 
-🎯 Objective
+# 🎯 Objective
 
 To configure and verify an Intrusion Prevention System (IPS) using Wazuh. The goal is to detect an SSH brute-force attack and automatically trigger a firewall block on the target host (ubuntu_22) to mitigate the threat in real-time.
 
 ------------------------------------------------------------------------
 
-🔍 Configuration Details
+# 🔍 Configuration Details
 The active response was configured on the Wazuh Manager in the /var/ossec/etc/ossec.conf file.
 
 ![](screenshots/ar-conf.png)
 
-⚙️ Active Response Setup
+# ⚙️ Active Response Setup
 The following parameters were defined to ensure the manager commands the agent to drop malicious traffic:
 
 Command: firewall-drop (utilizes the host's local firewall to block IPs).
@@ -618,7 +618,7 @@ To catch the brute force attack effectively, the following rules were monitored:
 ------------------------------------------------------------------------
 
 
-🧪 Attack Simulation & Verification 
+# 🧪 Attack Simulation & Verification 
 An SSH brute-force attack was simulated using Hydra against the Ubuntu SSH service.
 
 $ hydra -l root -P passwords.txt ssh://agent-ip
@@ -661,7 +661,7 @@ Active Response event logged:
 
 ------------------------------------------------------------------------
 
-🧠 Troubleshooting & Lessons Learned
+# 🧠 Troubleshooting & Lessons Learned
 
 XML Formatting: Initially, the configuration was placed inside XML comment tags (``), causing it to be ignored by the manager. Removing these tags and restarting the wazuh-manager service resolved the issue.
 
@@ -672,7 +672,7 @@ Wazuh can function as an automated Intrusion Prevention System (IPS)
 Accurate rule selection is critical for proper response execution
 
 
-🚀 Result
+# 🚀 Result
 
 Successfully implemented automated SSH brute-force mitigation using Wazuh Active Response.
 
@@ -680,10 +680,10 @@ Week 3: ✅ Completed
 
 ------------------------------------------------------------------------
 
-📘 Week 4 – Threat Simulation & MITRE Visualization
+## 📘 Week 4 – Threat Simulation & MITRE Visualization
 🔥 Ransomware Attack Simulation using Atomic Red Team
 
-🎯 Objective
+# 🎯 Objective
 Simulate a common ransomware behavior using the Atomic Red Team framework and validate detection within the SOC lab.
 
 Technique simulated:
@@ -712,7 +712,10 @@ MITRE ATT&CK mapping and visualization in OpenSearch
 
 📜 Event ID 4688 (Process Creation) enabled
 
-🧪 Attack Simulation
+# 🔥 Atomic Red Team Installation
+
+
+# 🧪 Attack Simulation
 MITRE Technique:
 
 T1490 – Inhibit System Recovery
@@ -729,7 +732,7 @@ Increase operational impact
 
 Disable backup recovery options
 
-🔍 Detection Workflow
+# 🔍 Detection Workflow
 
 Attack command executed on Windows Server
 
@@ -747,7 +750,7 @@ Visualized in dashboard
 
 ------------------------------------------------------------------------
 
-⚙️ Custom Configuration
+# ⚙️ Custom Configuration
 1️⃣ Windows Agent – Sysmon Log Collection
 
 File:
@@ -802,18 +805,18 @@ Restarted Wazuh:
 
 systemctl restart wazuh-manager
 
-📊 Detection Result
+# 📊 Detection Result
 
 After executing the attack:
 
-Field	Value
-Agent	windows_s16
-Rule ID	100200
-Level	12 (High)
-MITRE ID	T1490
-Tactic	Impact
-Technique	Inhibit System Recovery
+Field	              Value
+Agent	              windows_s16
+Rule ID	            100200
+Level	              12 (High)
+MITRE ID	          T1490
+Tactic	            Impact
+Technique	        Inhibit System Recovery
 
  ![](screenshots/MITRE-Dashboard)
-=======
->>>>>>> 1769392d5d43fe19c9963b648a7644ac6d73bc9b
+ 
+
