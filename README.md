@@ -680,10 +680,11 @@ Week 3: ✅ Completed
 
 ------------------------------------------------------------------------
 
-## 📘 Week 4 – Threat Simulation & MITRE Visualization
+# 📘 Week 4 – Threat Simulation & MITRE Visualization
+
 🔥 Ransomware Attack Simulation using Atomic Red Team
 
-# 🎯 Objective
+## 🎯 Objective
 Simulate a common ransomware behavior using the Atomic Red Team framework and validate detection within the SOC lab.
 
 Technique simulated:
@@ -713,7 +714,7 @@ MITRE ATT&CK mapping and visualization in OpenSearch
 📜 Event ID 4688 (Process Creation) enabled
 
 ------------------------------------------------------------------------
-# 🔧 Atomic Red Team Installation Process
+## 🔧 Atomic Red Team Installation Process
 
 Step 1 – Bypass Execution Policy
 
@@ -750,7 +751,7 @@ C:\AtomicRedTeam\atomics
 
 ------------------------------------------------------------------------
 
-# ⚙️ Custom Configuration
+## ⚙️ Custom Configuration
 1️⃣ Windows Agent – Sysmon Log Collection
 
 File:
@@ -789,9 +790,10 @@ gpedit.msc
 🛡 Custom Wazuh Detection Rule
 
 ![](screenshots/new-rule.png)
+
 File:
-```xml
 /var/ossec/etc/rules/local_rules.xml
+```xml
 <group name="windows,sysmon,ransomware,">
 
   <rule id="100200" level="12">
@@ -811,7 +813,7 @@ Restarted Wazuh:
 
 systemctl restart wazuh-manager
 ------------------------------------------------------------------------
-# 🧪 Attack Simulation
+## 🧪 Attack Simulation
 MITRE Technique:
 
 T1490 – Inhibit System Recovery
@@ -828,7 +830,7 @@ if showing no files - Then create one
 $ wmic shadowcopy call create Volume='C:\'
 ![](screenshots/art-success.png)
 
-# Purpose:
+## Purpose:
 
 Ransomware families commonly delete shadow copies to:
 
@@ -838,7 +840,7 @@ Increase operational impact
 
 Disable backup recovery options
 ------------------------------------------------------------------------
-# 🔍 Detection Workflow
+## 🔍 Detection Workflow
 
 Attack command executed on Windows Server
 
@@ -858,7 +860,7 @@ Alert  received in dashboard
 
  wazuh -> Module -> MITRE ATT&CK
  ------------------------------------------------------------------------
-# 📊 Detection Result
+## 📊 Detection Result
 
 After executing the attack:
 
@@ -873,55 +875,85 @@ Technique	        Inhibit System Recovery
 # ✅ Gate Check – Completed
 
 ✔ Ransomware technique simulated
+
 ✔ Alert generated
+
 ✔ MITRE ATT&CK mapping confirmed
+
 ✔ Kill Chain sequence visualized
+
 ✔ Detection visible in OpenSearch dashboard
 
-# 🎓 Skills Demonstrated
+
+## 🎓 Skills Demonstrated
+
 Threat emulation using Atomic Red Team
+
 Windows auditing configuration
+
 Sysmon event analysis
+
 Wazuh rule development
+
 MITRE ATT&CK mapping
+
 OpenSearch visualization
+
 SOC detection validation workflow
+
 ------------------------------------------------------------------------
- # Challenges Faced ⚠ 
-SSL/TLS Secure Channel Error
+## Challenges Faced ⚠ 
+1. SSL/TLS Secure Channel Error
 Issue:
 While downloading Atomic Red Team from GitHub
 Could not create SSL/TLS secure channel
+
 Root Cause:
 Older Windows Server versions do not enable TLS 1.2 by default.
+
 Solution Applied:
 Enabled TLS 1.2 to resolve secure channel error while downloading Atomic Red Team from GitHub
+
 ✔ Successfully resolved GitHub download issue.
 
- Initial Incorrect MITRE ATT&CK Mapping
+2. Initial Incorrect MITRE ATT&CK Mapping
+
 Issue:
 After executing T1490, alert was generated in Wazuh but mapped to:
 T1059.003 (Windows Command Shell)
+
 Instead of:
 T1490 (Inhibit System Recovery)
+
 Root Cause:
 Default Wazuh rule matched generic command execution before specific behavior.
+
 Solution:
 Created custom rule matching:
+
 vssadmin.exe
 delete shadows
+
 Mapped rule explicitly to MITRE T1490
+
 Restarted Wazuh Manager
+
 Re-ran simulation
+
 ✔ Alert correctly mapped to Impact tactic.
 
-Understanding Prerequisites for Shadow Copy Deletion
+3. Understanding Prerequisites for Shadow Copy Deletion
+
 Issue:
 T1490 test requires an existing shadow copy.
+
 If no shadow copy exists, command may return:
 No items found that satisfy the query.
+
 Solution:
-Manually created shadow copy before executing attack:
+Manually created shadow copy before executing attack
+
 ✔ Ensured realistic ransomware simulation.
+
 Week 4: ✅ Completed
 ------------------------------------------------------------------------
