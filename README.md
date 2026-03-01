@@ -809,7 +809,7 @@ File:
 Restarted Wazuh:
 
 systemctl restart wazuh-manager
-
+------------------------------------------------------------------------
 # 🧪 Attack Simulation
 MITRE Technique:
 
@@ -836,7 +836,7 @@ Prevent system restoration
 Increase operational impact
 
 Disable backup recovery options
-
+------------------------------------------------------------------------
 # 🔍 Detection Workflow
 
 Attack command executed on Windows Server
@@ -856,6 +856,7 @@ Alert  received in dashboard
  ![](screenshots/MITRE-Dashboard.png)
 
  wazuh -> Module -> MITRE ATT&CK
+ ------------------------------------------------------------------------
 # 📊 Detection Result
 
 After executing the attack:
@@ -884,7 +885,7 @@ Wazuh rule development
 MITRE ATT&CK mapping
 OpenSearch visualization
 SOC detection validation workflow
-
+------------------------------------------------------------------------
  # Challenges Faced ⚠ 
 SSL/TLS Secure Channel Error
 Issue:
@@ -922,3 +923,4 @@ Solution:
 Manually created shadow copy before executing attack:
 ✔ Ensured realistic ransomware simulation.
 Week 4: ✅ Completed
+------------------------------------------------------------------------
