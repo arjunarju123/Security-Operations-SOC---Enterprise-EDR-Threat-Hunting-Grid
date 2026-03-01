@@ -476,6 +476,7 @@ MITRE Technique:
 T1490 – Inhibit System Recovery
 
 Attack Command Executed:
+
 $ Invoke-AtomicTest T1490 -ShowDetails
 
 or 
@@ -484,6 +485,7 @@ manually trigger
 $ vssadmin.exe delete shadows /all /quiet
 
 if showing no files - Then create one
+
 $ wmic shadowcopy call create Volume='C:\'
 ![](screenshots/art-success.png)
 
