@@ -217,7 +217,6 @@ The same configuration change was applied to both Windows and Ubuntu providers.
 
 A vulnerable version of Apache2 was manually installed to validate detection capabilities.
 Vulnerabilities detected and alerted.
-eenshots/vulnerability-detector-alert.png)
 
 ![](screenshots/vulnerability-detector-alert.png) ![](screenshots/vulnerability-detector-alert2.png)
 
