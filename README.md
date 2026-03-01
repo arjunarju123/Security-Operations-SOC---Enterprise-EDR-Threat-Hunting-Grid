@@ -470,8 +470,11 @@ File:
 Restarted Wazuh:
 
 systemctl restart wazuh-manager
+
 ------------------------------------------------------------------------
+
 ## 🧪 Attack Simulation
+
 MITRE Technique:
 
 T1490 – Inhibit System Recovery
