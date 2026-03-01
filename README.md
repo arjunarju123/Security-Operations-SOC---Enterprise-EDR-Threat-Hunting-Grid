@@ -469,7 +469,7 @@ File:
 ```
 Restarted Wazuh:
 
-systemctl restart wazuh-manager
+$ sudo systemctl restart wazuh-manager
 
 ------------------------------------------------------------------------
 
