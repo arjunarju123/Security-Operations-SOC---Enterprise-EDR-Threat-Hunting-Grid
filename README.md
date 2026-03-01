@@ -712,41 +712,41 @@ MITRE ATT&CK mapping and visualization in OpenSearch
 
 📜 Event ID 4688 (Process Creation) enabled
 
-# 🔥 Atomic Red Team Installation
+------------------------------------------------------------------------
+# 🔧 Atomic Red Team Installation Process
 
+Step 1 – Bypass Execution Policy
 
-# 🧪 Attack Simulation
-MITRE Technique:
+PowerShell blocks unsigned scripts by default.
+Execution policy was changed for current user:
+Powershell
+$ Set-ExecutionPolicy Bypass CurrentUser
 
-T1490 – Inhibit System Recovery
+Confirmed with Y to proceed.
 
-Attack Command Executed:
-vssadmin.exe delete shadows /all /quiet
-Purpose:
+Step 2 – Enable TLS 1.2
 
-Ransomware families commonly delete shadow copies to:
+Fixed SSL/TLS secure channel error (if needed):
+Powershell
+$ [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-Prevent system restoration
+Step 3 – Install Atomic Red Team via GitHub Script
+Powershell
 
-Increase operational impact
+$ IEX(IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/master/install-atomicredteam.ps1' -UseBasicParsing);
 
-Disable backup recovery options
+Step 4 – Download Atomics
 
-# 🔍 Detection Workflow
+Powershell
+$ Install-AtomicRedTeam -getAtomics -Force
 
-Attack command executed on Windows Server
+verify the folder exists: $ cd C:/Atomicredteam 
+$ dir
 
-Sysmon generated Event ID 1 (Process Create)
+atomicds stored at:
 
-Event forwarded to Wazuh Manager
-
-Custom rule triggered
-
-Alert indexed in OpenSearch
-
-MITRE mapping applied
-
-Visualized in dashboard
+C:\AtomicRedTeam\atomics
+![](screenshots/art-installation.png)
 
 ------------------------------------------------------------------------
 
@@ -773,13 +773,18 @@ Added:
 
 ![](screenshots/new-conf.png)
 
-2️⃣ Windows Audit Policy Enabled
-auditpol /set /subcategory:"Process Creation" /success:enable
+ Windows Audit Policy Enabled 
+$ auditpol /set /subcategory:"Process Creation" /success:enable
+$ gpupdate /force
 
-Enabled command-line logging:
+Check 
+gpedit.msc
+→ Computer Configuration
+→ Administrative Templates
+→ System
+→ Audit Process Creation
+→ Include command line in process creation events = Enabled
 
-reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\Audit" `
-/v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
 🛡 Custom Wazuh Detection Rule
 
 ![](screenshots/new-rule.png)
@@ -805,6 +810,52 @@ Restarted Wazuh:
 
 systemctl restart wazuh-manager
 
+# 🧪 Attack Simulation
+MITRE Technique:
+
+T1490 – Inhibit System Recovery
+
+Attack Command Executed:
+$ Invoke-AtomicTest T1490 -ShowDetails
+
+or 
+manually trigger
+
+$ vssadmin.exe delete shadows /all /quiet
+
+if showing no files - Then create one
+$ wmic shadowcopy call create Volume='C:\'
+![](screenshots/art-success.png)
+
+# Purpose:
+
+Ransomware families commonly delete shadow copies to:
+
+Prevent system restoration
+
+Increase operational impact
+
+Disable backup recovery options
+
+# 🔍 Detection Workflow
+
+Attack command executed on Windows Server
+
+Sysmon generated Event ID 1 (Process Create)
+
+Event forwarded to Wazuh Manager
+
+Custom rule triggered
+
+Alert indexed in OpenSearch
+
+MITRE mapping applied
+
+Alert  received in dashboard
+
+ ![](screenshots/MITRE-Dashboard.png)
+
+ wazuh -> Module -> MITRE ATT&CK
 # 📊 Detection Result
 
 After executing the attack:
@@ -817,6 +868,57 @@ MITRE ID	          T1490
 Tactic	            Impact
 Technique	        Inhibit System Recovery
 
- ![](screenshots/MITRE-Dashboard.png)
- 
+# ✅ Gate Check – Completed
 
+✔ Ransomware technique simulated
+✔ Alert generated
+✔ MITRE ATT&CK mapping confirmed
+✔ Kill Chain sequence visualized
+✔ Detection visible in OpenSearch dashboard
+
+# 🎓 Skills Demonstrated
+Threat emulation using Atomic Red Team
+Windows auditing configuration
+Sysmon event analysis
+Wazuh rule development
+MITRE ATT&CK mapping
+OpenSearch visualization
+SOC detection validation workflow
+
+ # Challenges Faced ⚠ 
+SSL/TLS Secure Channel Error
+Issue:
+While downloading Atomic Red Team from GitHub
+Could not create SSL/TLS secure channel
+Root Cause:
+Older Windows Server versions do not enable TLS 1.2 by default.
+Solution Applied:
+Enabled TLS 1.2 to resolve secure channel error while downloading Atomic Red Team from GitHub
+✔ Successfully resolved GitHub download issue.
+
+ Initial Incorrect MITRE ATT&CK Mapping
+Issue:
+After executing T1490, alert was generated in Wazuh but mapped to:
+T1059.003 (Windows Command Shell)
+Instead of:
+T1490 (Inhibit System Recovery)
+Root Cause:
+Default Wazuh rule matched generic command execution before specific behavior.
+Solution:
+Created custom rule matching:
+vssadmin.exe
+delete shadows
+Mapped rule explicitly to MITRE T1490
+Restarted Wazuh Manager
+Re-ran simulation
+✔ Alert correctly mapped to Impact tactic.
+
+Understanding Prerequisites for Shadow Copy Deletion
+Issue:
+T1490 test requires an existing shadow copy.
+If no shadow copy exists, command may return:
+No items found that satisfy the query.
+Solution:
+Manually created shadow copy before executing attack:
+✔ Ensured realistic ransomware simulation.
+Week 4: ✅ Completed
