@@ -393,9 +393,11 @@ $ IEX(IWR 'https://raw.githubusercontent.com/redcanaryco/invoke-atomicredteam/ma
 Step 4 – Download Atomics
 
 Powershell
+
 $ Install-AtomicRedTeam -getAtomics -Force
 
 verify the folder exists: $ cd C:/AtomicRedTeam 
+
 $ dir
 
 atomics stored at:
