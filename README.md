@@ -279,6 +279,8 @@ $ hydra -l root -P passwords.txt ssh://agent-ip
 
 ![](screenshots/brute-force.png)
 
+------------------------------------------------------------------------
+
 ## 🚪 Gate Check
 
 Manual Verification on Target Host
@@ -312,6 +314,14 @@ Active Response event logged:
 “Host Blocked by firewall-drop Active Response”
 ![](screenshots/ar-block-event.png)
 
+
+## 📊 Security Impact
+
+The malicious IP was blocked within seconds of triggering the Level 10 rule, demonstrating real-time automated intrusion prevention capability.
+
+Architecture Flow:
+
+Hydra Attack → SSH Logs → Wazuh Rule 40111 Triggered → Active Response → firewall-drop.sh → iptables DROP Rule Applied
 
 ------------------------------------------------------------------------
 
