@@ -279,8 +279,8 @@ $ hydra -l root -P passwords.txt ssh://agent-ip
 
 ![](screenshots/brute-force.png)
 
-During the brute-force attempt, Hydra generated multiple 
-rapid SSH authentication failures against the Ubuntu target.
+When the brute-force attack was executed using Hydra,
+multiple failed SSH authentication attempts were generated within a short time frame.
 
 Repeated “authentication failed” entries appeared in /var/log/auth.log.
 
