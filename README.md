@@ -279,6 +279,15 @@ $ hydra -l root -P passwords.txt ssh://agent-ip
 
 ![](screenshots/brute-force.png)
 
+During the brute-force attempt, Hydra generated multiple 
+rapid SSH authentication failures against the Ubuntu target.
+
+Repeated “authentication failed” entries appeared in /var/log/auth.log.
+
+After threshold breach, the Active Response module executed automatically.
+
+The attacker’s IP was inserted into the iptables DROP rule.
+
 ------------------------------------------------------------------------
 
 ## 🚪 Gate Check
