@@ -193,7 +193,7 @@ Configured directory: C:\Program Files (x86)\ossec-agent\ossec.conf
 
 ## 🚨 Vulnerability Detection
 
-The objective of this task is to configure the Wazuh Vulnerability Detector to identify known vulnerabilities in installed software packages on monitored systems. The module compares the installed
+The objective of this task is to configure the Wazuh Vulnerability Detector to identify known vulnerabilities in installed software packages on monitored systems.
 
 
 Enabled the Vulnerability Detector module.
