@@ -196,13 +196,6 @@ Configured directory: C:\Program Files (x86)\ossec-agent\ossec.conf
 Enabled the Vulnerability Detector module.
 
 
-### Capabilities Achieved
--   Detects installed vulnerable packages
--   Maps software versions to CVE database
--   Displays:
-    -   Severity Level
-    -   Affected Package
-    -   Fixed Version
 ```xml
 <enabled>no</enabled>            -->          <enabled>yes</enabled>
 ```
@@ -215,6 +208,14 @@ Vulnerabilities detected and alerted.
 
 ![](screenshots/vulnerability-detector-alert.png) ![](screenshots/vulnerability-detector-alert2.png)
 
+### Capabilities Achieved
+-   Detects installed vulnerable packages
+-   Maps software versions to CVE database
+-   Displays:
+    -   CVE ID
+    -   Severity Level
+    -   Affected Package
+    -   Fixed Version
 
 
 
