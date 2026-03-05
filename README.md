@@ -59,6 +59,8 @@ Sysmon installed using:
 
 Wazuh agent configuration updated:
 
+C:\Program Files (x86)\ossec-agent\ossec.conf
+
 ```xml
 <localfile>
   <location>Microsoft-Windows-Sysmon/Operational</location>
