@@ -195,19 +195,11 @@ Configured directory: C:\Program Files (x86)\ossec-agent\ossec.conf
 
 Enabled the Vulnerability Detector module.
 
-### Configuration
-
--   Canonical provider enabled (Ubuntu)
--   MSU provider enabled (Windows)
--   Automatic CVE database updates configured
--   Periodic scanning enabled
-
 
 ### Capabilities Achieved
 -   Detects installed vulnerable packages
 -   Maps software versions to CVE database
 -   Displays:
-    -   CVE ID
     -   Severity Level
     -   Affected Package
     -   Fixed Version
