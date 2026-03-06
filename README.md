@@ -261,6 +261,8 @@ To catch the brute force attack effectively, the following rules were monitored:
 
 5760: SSHD authentication failed.
 
+5763: SSHD brute force attacks Detection.
+
 5758: Maximum authentication attempts exceeded.
 
 40111: Multiple authentication failures (Trigger Rule).
