@@ -613,31 +613,38 @@ Enabled TLS 1.2 to resolve secure channel error while downloading Atomic Red Tea
 
 ✔ Successfully resolved GitHub download issue.
 
-2. Initial Incorrect MITRE ATT&CK Mapping
+2. Initial MITRE ATT&CK didn't Mapped
 
 Issue:
-After executing T1490, alert was generated in Wazuh but mapped to:
-T1059.003 (Windows Command Shell)
+After executing the T1490 (Shadow Copy Deletion) attack simulation, the alert did not initially appear in the Wazuh dashboard.
 
 Instead of:
 T1490 (Inhibit System Recovery)
 
-Root Cause:
-Default Wazuh rule matched generic command execution before specific behavior.
+Root Cause
+The default Wazuh rules did not include a specific detection rule for the vssadmin delete shadows command related to the T1490 technique.
 
 Solution:
-Created custom rule matching:
+
+I analyzed the system event logs to confirm the activity.
+
+Then I created a custom Wazuh detection rule that specifically matches:
 
 vssadmin.exe
+
 delete shadows
 
-Mapped rule explicitly to MITRE T1490
+The rule was mapped explicitly to MITRE ATT&CK Technique T1490 – Inhibit System Recovery.
 
 Restarted Wazuh Manager
 
 Re-ran simulation
 
-✔ Alert correctly mapped to Impact tactic.
+The alert was successfully generated in the Wazuh dashboard and correctly mapped to the MITRE ATT&CK Impact tactic (T1490).
+
+
+✔ Detection working correctly after rule implementation
+
 
 3. Understanding Prerequisites for Shadow Copy Deletion
 
