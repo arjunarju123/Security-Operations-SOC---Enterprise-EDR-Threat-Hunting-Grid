@@ -330,7 +330,7 @@ The malicious IP was blocked within seconds of triggering the Level 10 rule, dem
 
 Architecture Flow:
 
-Hydra Attack → SSH Logs → Wazuh Rule 40111 Triggered → Active Response → firewall-drop.sh → iptables DROP Rule Applied
+Hydra Attack → SSH Logs → Wazuh Rule 5763 Triggered → Active Response → firewall-drop.sh → iptables DROP Rule Applied
 
 ------------------------------------------------------------------------
 
