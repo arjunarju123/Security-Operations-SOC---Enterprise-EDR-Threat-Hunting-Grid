@@ -276,7 +276,7 @@ To catch the brute force attack effectively, the following rules were monitored:
 # 🧪 Attack Simulation & Verification 
 An SSH brute-force attack was simulated using Hydra against the Ubuntu SSH service.
 
-$ hydra -l root -P passwords.txt ssh://agent-ip
+$ hydra -l username -P passwords.txt ssh://agent-ip
 
 ![](screenshots/brute-force.png)
 
