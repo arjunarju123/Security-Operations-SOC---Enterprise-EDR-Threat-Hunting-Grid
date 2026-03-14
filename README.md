@@ -19,7 +19,8 @@ MITRE ATT&CK.
   Component            Role
   --------------    ---------------
   Kali Linux           Wazuh Manager
-  Windows 11(zzz)      Wazuh Agent 
+  Windows 11(zzz)      Wazuh Agent
+  Windows server       Wazuh Agent
   Ubuntu server        Wazuh Agent
 ```
 All systems are configured in **Bridged Network Mode** to simulate a
